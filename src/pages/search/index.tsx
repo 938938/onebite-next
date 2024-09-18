@@ -1,7 +1,7 @@
 import SearchableLayout from '@/components/searchable-layout';
 import { ReactNode } from 'react';
 import BookItem from '@/components/book-item';
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { GetServerSidePropsContext, InferGetStaticPropsType } from 'next';
 import fetchBooks from '@/lib/fetch-books';
 
 export const getServerSideProps = async (
@@ -18,7 +18,7 @@ export const getServerSideProps = async (
 
 export default function Page({
   books,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <div>
       {books.map((book) => (
