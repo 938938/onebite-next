@@ -1,4 +1,3 @@
-// CSS Module
 import SearchableLayout from '@/components/searchable-layout';
 import style from './index.module.css';
 import { ReactNode } from 'react';
@@ -9,7 +8,6 @@ import FetchRandomBooks from '@/lib/fetch-random-books';
 
 export const getStaticProps = async () => {
   // ssr로 동작하도록 자동으로 설정(getServerSideProps)
-
   const [allBooks, recoBooks] = await Promise.all([
     fetchBooks(),
     FetchRandomBooks(),
@@ -19,6 +17,7 @@ export const getStaticProps = async () => {
       allBooks,
       recoBooks,
     },
+    // revalidate: 3, // ISR 3초마다 페이지 재 빌딩
   };
   // 반드시 객체타입의 props가 들어있어야만 함.
 };

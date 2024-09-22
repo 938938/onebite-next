@@ -12,6 +12,7 @@ export const getStaticPaths = () => {
     ],
     // fallback: false, // 1,2,3 을 제외한 경로는 404 경로로 지정(not found)
     // blocking : 즉시 생성(SSR) , true : 즉시 생성 + 페이지만 미리 반환
+    fallback: false,
   };
 };
 
